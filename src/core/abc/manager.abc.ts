@@ -87,6 +87,16 @@ export abstract class SessionManager
     return this.lock.acquire(name, fn);
   }
 
+  /**
+   * Restriction method used in WAHA Core to enforce single-session mode.
+   * Subclasses (e.g. SessionManagerCore) override this as a no-op to allow
+   * multiple sessions (Plus behaviour).
+   */
+  onlyDefault() {
+    // Patched: no-op — override in subclasses to disable single-session restriction
+    return;
+  }
+
   protected abstract getEngine(engine: WAHAEngine): typeof WhatsappSession;
 
   protected abstract get EngineClass(): typeof WhatsappSession;

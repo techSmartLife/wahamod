@@ -61,6 +61,16 @@ export class SessionManagerCore extends SessionManager implements OnModuleInit {
   protected events2: DefaultMap<WAHAEvents, SwitchObservable<any>>;
   protected readonly engineBootstrap: EngineBootstrap;
 
+  /**
+   * Patched: Allow multiple sessions by making this a no-op.
+   * The original WAHA Core enforces a single-session restriction via onlyDefault().
+   * This override disables that restriction so the app can run with multiple sessions.
+   */
+  onlyDefault() {
+    // Patched: no-op to allow multiple sessions
+    return;
+  }
+
   constructor(
     config: WhatsappConfigService,
     private engineConfigService: EngineConfigService,
