@@ -75,8 +75,8 @@ fi
 #
 if [ "$USE_XVFB" = "true" ]; then
   echo "Executing node with xvfb-run..."
-  exec xvfb-run --auto-servernum node dist/main
+  exec xvfb-run --auto-servernum node dist/main.js
 else
   echo "Executing node without xvfb-run..."
-  exec node dist/main
+  exec node dist/main.js
 fi
