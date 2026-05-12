@@ -69,7 +69,7 @@ COPY --chown=waha:waha entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 # Create data directories
-RUN mkdir -p /app/.sessions /app/.media && chown -R waha:waha /app
+RUN mkdir -p /app/.sessions /app/.media && chown -R waha:waha /app/.sessions /app/.media
 
 # Environment variables
 ENV PUPPETEER_SKIP_DOWNLOAD=True \
